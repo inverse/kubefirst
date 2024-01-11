@@ -41,3 +41,17 @@ brews:
       name: homebrew-tools
     dependencies:
       - aws-iam-authenticator
+aurs:
+  - name: kubefirst-bin
+    description: 'The Kubefirst Open Source Platform'
+    maintainers:
+      - 'Your Name <your@email.com>'
+    homepage: 'https://github.com/kubefirst/kubefirst/'
+    git_url: 'ssh://aur@aur.archlinux.org/kubefirst-bin.git'
+    private_key: '{{ .Env.AUR_KEY }}'
+    license: 'MIT'
+    provides:
+      - kubefirst
+    package: |-
+      install -Dm755 "./git-pair" "$pkgdir/usr/bin/kubefirst"
+      install -Dm644 "./LICENSE" "$pkgdir/usr/share/licenses/kubefirst/LICENSE"
